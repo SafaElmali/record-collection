@@ -6,7 +6,7 @@ const options: object = {
   params: { locale: "en-US", pageSize: "20", startFrom: "0" },
   headers: {
     "x-rapidapi-host": "shazam.p.rapidapi.com",
-    "x-rapidapi-key": "5800238df5mshbf93f6fcfa1821dp1d5970jsn15a7b5aba15a",
+    "x-rapidapi-key": process.env.REACT_APP_RAPIDAPI_KEY,
   },
 };
 
