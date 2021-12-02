@@ -1,14 +1,16 @@
 import { createRef, FunctionComponent, useState, RefObject } from "react";
 import styled from "styled-components";
+import RecordLink from "./RecordLink";
 import RecordMiniPlayer from "./RecordMiniPlayer";
 
 const Record: FunctionComponent<{ track: any }> = ({ track }) => {
   const [toggleRecord, setToggleRecord] = useState(false);
   const {
-    hub: { actions },
+    hub: { actions, options },
   } = track;
   const audioRef: RefObject<HTMLAudioElement> = createRef();
   const trackURL = actions?.[1]?.uri;
+  const appleMusicURL = options?.[0].actions?.[1]?.uri;
   const trackImage =
     track?.images?.coverarthq ||
     track?.images?.coverart ||
@@ -32,6 +34,7 @@ const Record: FunctionComponent<{ track: any }> = ({ track }) => {
             </Audio>
           </StyledRecord>
         </StyledRecordContainer>
+        <RecordLink appleMusicURL={appleMusicURL} />
       </RecordCoverContainer>
     </RecordContainer>
   );
