@@ -1,16 +1,20 @@
-import { FunctionComponent, useState } from "react";
+import { createRef, FunctionComponent, useState, RefObject } from "react";
 import styled from "styled-components";
 import RecordMiniPlayer from "./RecordMiniPlayer";
 
 const Record: FunctionComponent<{ track: any }> = ({ track }) => {
   const [toggleRecord, setToggleRecord] = useState(false);
-
+  const {
+    hub: { actions },
+  } = track;
+  const audioRef: RefObject<HTMLAudioElement> = createRef();
+  const trackURL = actions?.[1]?.uri;
   const trackImage =
     track?.images?.coverarthq ||
     track?.images?.coverart ||
     track?.images?.background;
 
-  if (!trackImage) return null;
+  if (!trackImage || !trackURL) return null;
 
   const handleToggleRecord = () => {
     setToggleRecord(!toggleRecord);
@@ -22,7 +26,10 @@ const Record: FunctionComponent<{ track: any }> = ({ track }) => {
         <RecordCover src={trackImage} />
         <StyledRecordContainer>
           <StyledRecord isRecordActive={toggleRecord}>
-            <RecordMiniPlayer trackImage={trackImage} />
+            <RecordMiniPlayer trackImage={trackImage} audioPlayer={audioRef} />
+            <Audio ref={audioRef}>
+              <AudioSource src={trackURL} type="audio/ogg" />
+            </Audio>
           </StyledRecord>
         </StyledRecordContainer>
       </RecordCoverContainer>
@@ -49,11 +56,8 @@ const StyledRecord = styled.div<{ isRecordActive: boolean }>`
     isRecordActive
       ? "translateX(150px) rotate(0deg)"
       : "translateX(0) rotate(-15deg)"};
+  z-index: -1;
   width: 100%;
-  &:hover {
-    transform: ${({ isRecordActive }) =>
-      !isRecordActive && "translateX(50px) rotate(-15deg)"};
-  }
 `;
 
 const RecordContainer = styled.div`
@@ -76,6 +80,10 @@ const RecordCoverContainer = styled.div<{ isRecordActive: boolean }>`
   &:hover {
     transform: ${({ isRecordActive }) =>
       !isRecordActive && "translateX(-25px)"};
+    ${StyledRecord} {
+      transform: ${({ isRecordActive }) =>
+        !isRecordActive && "translateX(50px) rotate(-15deg)"};
+    }
   }
 `;
 
@@ -85,3 +93,7 @@ const RecordCover = styled.img`
   position: relative;
   width: 250px;
 `;
+
+const Audio = styled.audio``;
+
+const AudioSource = styled.source``;

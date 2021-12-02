@@ -1,15 +1,16 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, RefObject } from "react";
 import styled from "styled-components";
 import RecordMiniPlayPauseButton from "./RecordMiniPlayPauseButton";
 
-const RecordMiniPlayer: FunctionComponent<{ trackImage: string }> = ({
-  trackImage,
-}) => {
+const RecordMiniPlayer: FunctionComponent<{
+  trackImage: string;
+  audioPlayer: RefObject<HTMLAudioElement>;
+}> = ({ trackImage, audioPlayer }) => {
   return (
     <StyledRecordMiniPlayer>
       <MiniPlayerCoverContainer>
         <MiniPlayerCover src={trackImage} />
-        <RecordMiniPlayPauseButton />
+        <RecordMiniPlayPauseButton audioPlayer={audioPlayer} />
       </MiniPlayerCoverContainer>
     </StyledRecordMiniPlayer>
   );

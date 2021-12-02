@@ -11,7 +11,6 @@ const App: FunctionComponent = () => {
   }
 
   const { tracks } = data?.data;
-  console.log(tracks);
 
   return (
     <Container>
