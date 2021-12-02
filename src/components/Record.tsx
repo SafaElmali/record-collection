@@ -34,7 +34,7 @@ const Record: FunctionComponent<{ track: any }> = ({ track }) => {
             </Audio>
           </StyledRecord>
         </StyledRecordContainer>
-        <RecordLink appleMusicURL={appleMusicURL} />
+        <RecordLink appleMusicURL={appleMusicURL} toggleRecord={toggleRecord} />
       </RecordCoverContainer>
     </RecordContainer>
   );

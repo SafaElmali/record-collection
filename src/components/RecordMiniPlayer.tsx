@@ -18,7 +18,9 @@ const RecordMiniPlayer: FunctionComponent<{
 
 export default RecordMiniPlayer;
 
-const MiniPlayerCoverContainer = styled.div``;
+const MiniPlayerCoverContainer = styled.div`
+  position: relative;
+`;
 
 const StyledRecordMiniPlayer = styled.div`
   background-color: black;
