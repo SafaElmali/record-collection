@@ -1,4 +1,8 @@
-# Record Collection
+<div align="center">
+            
+# Record Collection 🎵 
+            
+</div>
 
 ## Table of contents
 
