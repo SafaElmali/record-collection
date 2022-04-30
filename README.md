@@ -50,3 +50,5 @@ Users should be able to:
 - Frontend Mentor - [@SafaElmali](https://www.frontendmentor.io/profile/SafaElmali)
 - Twitter - [@SafaElmali](https://twitter.com/SafaElmali)
 - Github - [@SafaElmali](https://github.com/SafaElmali)
+- CSS Battle Dev - [@SafaElmali](https://cssbattle.dev/player/tsafaelmali)
+
