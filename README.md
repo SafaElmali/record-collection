@@ -6,7 +6,7 @@
 
 ## Table of contents
 
-- [Record Collection](#frontend-mentor---nft-preview-card-component-solution)
+- [Record Collection](#record-collection)
   - [Table of contents](#table-of-contents)
   - [Overview](#overview)
     - [The challenge](#the-challenge)
